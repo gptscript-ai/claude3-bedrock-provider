@@ -2,4 +2,4 @@ boto3
 fastapi
 uvicorn[standard]
 anthropic[bedrock]
-https://github.com/gptscript-ai/claude3-provider-common/archive/main.zip#0.0.3
+https://github.com/gptscript-ai/claude3-provider-common/archive/main.zip#0.0.4
