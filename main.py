@@ -1,10 +1,19 @@
 import json
 import os
+import sys
 
+import boto3
 import claude3_provider_common
 from anthropic import AsyncAnthropicBedrock
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse, StreamingResponse
+
+try:
+    client = boto3.client('sts')
+    response = client.get_caller_identity()
+except Exception as e:
+    print("Please authenticate with AWS - ", e, file=sys.stderr)
+    sys.exit(1)
 
 debug = os.environ.get("GPTSCRIPT_DEBUG", "false") == "true"
 client = AsyncAnthropicBedrock()
